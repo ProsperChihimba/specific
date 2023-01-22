@@ -53,7 +53,7 @@ class ContactPickerDelegate: NSObject, CNContactPickerDelegate {
     private func getAContact(withResult result: @escaping FlutterResult) {
         let contactPicker = CNContactPickerViewController()
         contactPickerDelegate = ContactPickerDelegate(onSelectContact: { contact in
-            result(contact.givenName + contact.familyName)
+            result(contact.phoneNumbers[0].value.stringValue)
             self.contactPickerDelegate = nil
         },
         onCancel: {
